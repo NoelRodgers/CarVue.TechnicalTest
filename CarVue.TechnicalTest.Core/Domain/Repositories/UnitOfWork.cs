@@ -1,37 +1,29 @@
 ﻿using System;
 using System.Data.Entity;
-using CarVue.TechnicalTest.Core.Domain.Repositories.Items;
+using CarVue.TechnicalTest.Common.UnitOfWorkPattern;
 
 namespace CarVue.TechnicalTest.Core.Domain.Repositories
 {
-    public class UnitOfWork : IUnitOfWork
+    public sealed class UnitOfWork : IUnitOfWork
     {
-        private readonly TechnicalTestDbContext _dbContext;
-        private bool _disposed;
+        private DbContext _dbContext;
 
-        public UnitOfWork(TechnicalTestDbContext dbContext)
+        public UnitOfWork(DbContext context)
         {
-            _dbContext = dbContext;
+            _dbContext = context;
         }
 
-        public void SaveAllChanges()
+        public int Commit()
         {
-            _dbContext.SaveChanges();
+            return _dbContext.SaveChanges();
         }
 
-        private IUserRepository _userRepository;
-        public IUserRepository UserRepository => _userRepository ?? (_userRepository = new UserRepository(_dbContext));
-
-        protected virtual void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
-            if (!_disposed)
-            {
-                if (disposing)
-                {
-                    _dbContext.Dispose();
-                }
-            }
-            _disposed = true;
+            if (!disposing) return;
+            if (_dbContext == null) return;
+            _dbContext.Dispose();
+            _dbContext = null;
         }
 
         public void Dispose()
@@ -40,6 +32,4 @@ namespace CarVue.TechnicalTest.Core.Domain.Repositories
             GC.SuppressFinalize(this);
         }
     }
-
-
 }

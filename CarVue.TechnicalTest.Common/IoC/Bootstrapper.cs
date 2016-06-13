@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Linq;
 using CarVue.TechnicalTest.Common.Interfaces;
+using CarVue.TechnicalTest.Common.UnitOfWorkPattern;
 using StructureMap;
 using StructureMap.Graph;
 
@@ -29,6 +30,8 @@ namespace CarVue.TechnicalTest.Common.IoC
                 y =>
                     y.FullName.StartsWith(projectPrefix) &&
                     !y.FullName.EndsWith("Tests"));
+            scan.AddAllTypesOf(typeof(IRepository<>));
+            scan.ConnectImplementationsToTypesClosing(typeof(IRepository<>));
             scan.WithDefaultConventions();
             scan.LookForRegistries();
         }

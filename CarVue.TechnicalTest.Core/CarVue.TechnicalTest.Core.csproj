@@ -65,24 +65,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Items\User.cs" />
-    <Compile Include="Domain\Repositories\IRepository.cs" />
-    <Compile Include="Domain\Repositories\Items\IUserRepository.cs" />
-    <Compile Include="Domain\Repositories\Items\UserRepository.cs" />
-    <Compile Include="Domain\Repositories\IUnitOfWork.cs" />
     <Compile Include="Domain\Repositories\Repository.cs" />
     <Compile Include="Domain\Repositories\UnitOfWork.cs" />
     <Compile Include="Domain\TechnicalTestDbContext.cs" />
     <Compile Include="IoC\DomainIoC.cs" />
-    <Compile Include="Migrations\201606130021375_AddUsersTable.cs" />
-    <Compile Include="Migrations\201606130021375_AddUsersTable.Designer.cs">
-      <DependentUpon>201606130021375_AddUsersTable.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business\" />
+    <Folder Include="Domain\Items\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -96,11 +88,6 @@
       <Project>{2E65BBF6-C930-4314-93E1-A0166A576236}</Project>
       <Name>CarVue.TechnicalTest.Common</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606130021375_AddUsersTable.resx">
-      <DependentUpon>201606130021375_AddUsersTable.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

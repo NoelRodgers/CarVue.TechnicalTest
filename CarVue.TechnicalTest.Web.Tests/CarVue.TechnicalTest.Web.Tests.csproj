@@ -135,12 +135,6 @@
     <Compile Include="Core\WebDriver\ByTagWithLabelTextOrAttribute.cs" />
     <Compile Include="Core\WebDriver\WaitConditions\AlertVisible.cs" />
     <Compile Include="Core\WebDriver\WaitConditions\ExpectedConditionsExtensions.cs" />
-    <Compile Include="Integration\List\Steps\TestSteps.cs" />
-    <Compile Include="Integration\List\TestFeature.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TestFeature.feature</DependentUpon>
-    </Compile>
     <Compile Include="IoC\TestsIoC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -148,10 +142,6 @@
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Integration\List\TestFeature.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>TestFeature.feature.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -161,7 +151,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Integration\List\Features\" />
+    <Folder Include="Integration\" />
     <Folder Include="Unit\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

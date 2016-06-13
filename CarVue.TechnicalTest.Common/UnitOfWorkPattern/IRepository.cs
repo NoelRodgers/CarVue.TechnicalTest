@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace CarVue.TechnicalTest.Core.Domain.Repositories
+namespace CarVue.TechnicalTest.Common.UnitOfWorkPattern
 {
     public interface IRepository<T>
-        where T : class, new()
+        where T : class
     {
         IEnumerable<T> Get(Expression<Func<T, bool>> filter = null,
                            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,

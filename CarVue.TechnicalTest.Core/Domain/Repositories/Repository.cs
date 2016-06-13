@@ -3,26 +3,25 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using CarVue.TechnicalTest.Common.UnitOfWorkPattern;
 
 namespace CarVue.TechnicalTest.Core.Domain.Repositories
 {
-    public abstract class Repository<T, TContext> : IRepository<T>
-        where T : class, new()
-        where TContext : DbContext
+    public abstract class Repository<T> : IRepository<T>
+        where T : class
     {
-        private readonly TContext _context;
+        private readonly DbContext _context;
         private readonly DbSet<T> _dbSet;
 
-        protected Repository(TContext context)
+        protected Repository(DbContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();
         }
 
-        public virtual IEnumerable<T> Get(
-            Expression<Func<T, bool>> filter = null,
-            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
-            string include = "")
+        public virtual IEnumerable<T> Get(Expression<Func<T, bool>> filter = null,
+                                          Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+                                          string include = "")
         {
             IQueryable<T> query = _dbSet;
 
@@ -49,7 +48,7 @@ namespace CarVue.TechnicalTest.Core.Domain.Repositories
 
         public virtual void Delete(object id)
         {
-            T entity = _dbSet.Find(id);
+            var entity = _dbSet.Find(id);
             Delete(entity);
         }
 

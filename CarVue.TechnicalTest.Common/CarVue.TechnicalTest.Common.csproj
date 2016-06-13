@@ -78,6 +78,8 @@
     <Compile Include="Parser\TypeParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization\XmlUtility.cs" />
+    <Compile Include="UnitOfWorkPattern\IRepository.cs" />
+    <Compile Include="UnitOfWorkPattern\IUnitOfWork.cs" />
     <Compile Include="Versioning\IVersionManager.cs" />
     <Compile Include="Versioning\VersionManager.cs" />
   </ItemGroup>
