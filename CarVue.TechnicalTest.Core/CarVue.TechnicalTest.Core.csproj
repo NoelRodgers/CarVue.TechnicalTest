@@ -65,17 +65,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Items\Company.cs" />
+    <Compile Include="Domain\Items\PhysicalAddress.cs" />
+    <Compile Include="Domain\Items\PhysicalAddressType.cs" />
+    <Compile Include="Domain\Items\VirtualAddress.cs" />
+    <Compile Include="Domain\Items\VirtualAddressType.cs" />
+    <Compile Include="Domain\Repositories\CompaniesRepository.cs" />
+    <Compile Include="Domain\Repositories\ICompaniesRepository.cs" />
     <Compile Include="Domain\Repositories\Repository.cs" />
     <Compile Include="Domain\Repositories\UnitOfWork.cs" />
+    <Compile Include="Domain\Service\CompaniesService.cs" />
+    <Compile Include="Domain\Service\ICompaniesService.cs" />
     <Compile Include="Domain\TechnicalTestDbContext.cs" />
     <Compile Include="IoC\DomainIoC.cs" />
+    <Compile Include="Migrations\201606131343475_AddCompanyAndAddressTables.cs" />
+    <Compile Include="Migrations\201606131343475_AddCompanyAndAddressTables.Designer.cs">
+      <DependentUpon>201606131343475_AddCompanyAndAddressTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\Items\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -88,6 +98,11 @@
       <Project>{2E65BBF6-C930-4314-93E1-A0166A576236}</Project>
       <Name>CarVue.TechnicalTest.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201606131343475_AddCompanyAndAddressTables.resx">
+      <DependentUpon>201606131343475_AddCompanyAndAddressTables.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

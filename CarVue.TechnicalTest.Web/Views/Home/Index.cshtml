@@ -1,4 +1,10 @@
-﻿@{
+﻿@model CarVue.TechnicalTest.Web.Models.CompanyListViewModel
+@{
     ViewBag.Title = "Home Page";
 }
-HELLO WORLD
+<div class="container">
+
+    @Html.Partial("_CompanyList", Model)
+
+    @Html.ActionLink("Create New Company", "Index", "Company")
+</div>

@@ -10,10 +10,10 @@ namespace CarVue.TechnicalTest.Core.Domain.Repositories
     public abstract class Repository<T> : IRepository<T>
         where T : class
     {
-        private readonly DbContext _context;
+        private readonly TechnicalTestDbContext _context;
         private readonly DbSet<T> _dbSet;
 
-        protected Repository(DbContext context)
+        protected Repository(TechnicalTestDbContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();

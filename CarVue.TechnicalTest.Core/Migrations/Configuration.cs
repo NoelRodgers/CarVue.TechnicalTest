@@ -1,4 +1,5 @@
 using CarVue.TechnicalTest.Core.Domain;
+using CarVue.TechnicalTest.Core.Domain.Items;
 
 namespace CarVue.TechnicalTest.Core.Migrations
 {
@@ -16,6 +17,11 @@ namespace CarVue.TechnicalTest.Core.Migrations
 
         protected override void Seed(TechnicalTestDbContext context)
         {
+            context.Companies.AddOrUpdate(x => x.Name,
+                new Company
+                {
+                    Name = "Test Company"
+                });
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

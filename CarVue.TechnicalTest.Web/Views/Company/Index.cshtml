@@ -1,0 +1,14 @@
+﻿@model CarVue.TechnicalTest.Web.Models.CompanyViewModel
+@{
+    ViewBag.Title = "Add New Company";
+}
+<div class="container">
+    @using (Html.BeginForm("AddOrEdit", "Company", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.CompanyName)
+            @Html.TextBoxFor(x => x.CompanyName, new {@class = "form-control"})
+        </div>
+        <input type="submit" value="Save" />
+    }
+</div>

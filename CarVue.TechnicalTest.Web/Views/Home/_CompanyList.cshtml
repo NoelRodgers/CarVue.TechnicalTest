@@ -1,0 +1,30 @@
+﻿@using CarVue.TechnicalTest.Web.Models
+@model CarVue.TechnicalTest.Web.Models.CompanyListViewModel
+
+<div data-specflow-id="Company List">
+    <h1>Company List</h1>
+    @if (!Model.Companies.Any())
+    {
+        <p class="danger" data-specflow-id="Message">No companies found</p>
+    }
+    else
+    {
+        <table class="table" data-specflow-id="Company Table">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var company in Model.Companies)
+                {
+                    <tr>
+                        <td data-specflow-id="Company Name">@company.CompanyName</td>
+                        <td><a href="@company.Id"></a>Edit</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
